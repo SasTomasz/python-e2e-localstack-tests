@@ -5,7 +5,6 @@ from api.get_user import GetUser
 from generators.user_generator import get_random_user
 from pages.home_page import HomePage
 
-#Test of ci
 def test_autocomplete(logged_in_test: Tuple[HomePage, str, User]):
     home_page, token, user = logged_in_test
     home_page.click_edit_on(user).verify_user_autocomplete(user)
