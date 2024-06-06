@@ -147,7 +147,7 @@ jobs:
           ADMIN_USERNAME: "admin"
           ADMIN_PASSWORD: "admin"
           BACKEND_URL: "http://localhost:4001"
-        run: pytest -v tests/api/
+        run: pytest --alluredir=allure-results tests/api/
 
       - name: Get Allure history
         uses: actions/checkout@v3
