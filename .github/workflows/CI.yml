@@ -124,8 +124,7 @@ jobs:
       - name: Checkout to homework branch
         uses: actions/checkout@v4
         with:
-          repository: "SasTomasz/python-e2e-localstack-tests/tree/homework"
-          path: "python-e2e-localstack-tests"
+          ref: homework
 
       - name: Set up Python
         uses: actions/setup-python@v4
