@@ -121,7 +121,11 @@ jobs:
         python-version: [ '3.12.1' ]
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout to homework branch
+        uses: actions/checkout@v4
+        with:
+          repository: "SasTomasz/python-e2e-localstack-tests/tree/homework"
+          path: "python-e2e-localstack-tests"
 
       - name: Set up Python
         uses: actions/setup-python@v4
