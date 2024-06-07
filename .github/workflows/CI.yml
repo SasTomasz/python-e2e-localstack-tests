@@ -149,6 +149,9 @@ jobs:
           BACKEND_URL: "http://localhost:4001"
         run: pytest --alluredir=allure-results tests/api/
 
+      - name: List all files in root directory
+        run: ls -al
+
       - name: Get Allure history
         uses: actions/checkout@v3
         if: always()
