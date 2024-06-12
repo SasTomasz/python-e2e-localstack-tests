@@ -72,3 +72,20 @@ def test_should_return_422_for_existing_email(sign_up_api: SignUp):
         sign_up_api.api_call(user_data)
     except requests.exceptions.HTTPError as e:
         assert e.response.status_code == 422, "Expected status code 422 for existing email"
+
+def test_should_return_400_for_invalid_names(sign_up_api: SignUp):
+    # Test with invalid first name
+    user_data = get_random_user()
+    user_data.firstName = ""  # Assuming empty first name is invalid
+    try:
+        sign_up_api.api_call(user_data)
+    except requests.exceptions.HTTPError as e:
+        assert e.response.status_code == 400, "Expected status code 400 for empty first name"
+
+    # Reset user_data for next test
+    user_data = get_random_user()
+    user_data.lastName = ""  # Assuming empty last name is invalid
+    try:
+        sign_up_api.api_call(user_data)
+    except requests.exceptions.HTTPError as e:
+        assert e.response.status_code == 400, "Expected status code 400 for empty last name"
